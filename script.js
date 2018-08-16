@@ -15,11 +15,11 @@ jQuery(document).ready(function($) {
 		    	if(x>15){
 		    		var delay = (Math.random() * 2) + 1;
 			    	var next = Math.floor(Math.random() * 5) + 1;
-			    	setTimeout(function(){
+			    	// setTimeout(function(){
 			    		setTimeout(function(){
 			    			glitch();
-			    		}, next*100);
-			    	}, delay*100);
+			    		}, next*50);
+			    	// }, delay*10);
 		    	} else {
 			    	var delay = (Math.random() * 2) + 1;
 			    	var next = Math.floor(Math.random() * 5) + 1;
@@ -33,5 +33,39 @@ jQuery(document).ready(function($) {
 		    }
 		});
 	}
+
+
+	$("form").on('submit', function(){
+		var $this = $(this);
+		var val = $this.find('input[type="email"]').val();
+		$this.find('input[type="submit"]').val('Tilmelder..');
+		$.ajax({
+			url: 'https://forrykt.taokitamoto.dk/submit.php',
+			type: 'POST',
+			data: {mail: val},
+		})
+		.done(function(data) {
+			setTimeout(function(){
+				$(".submit").hide();
+				$(".done").show();
+			}, 1000);
+		});
+		
+		return false;
+	});
+
+	$(".pragtfuldt").on('click', function(){
+		$(".mail-box").hide();
+		$(".submit").show();
+		$(".open-tilmeld").show();
+		$(".submit").find('input[type="email"]').val('');
+		$(".done").hide();
+	});
+
+	$(".open-tilmeld").on('click', function(){
+		$(this).hide();
+		$(".mail-box").show();
+	});
+
 
 });

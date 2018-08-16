@@ -42,4 +42,71 @@ body, html {
 	left: 0;
 	height: 100%;
 	width: 100%;
+	z-index: 90;
+	pointer-events: none;
+}
+
+
+.open-tilmeld {
+	position: absolute;
+	margin-top: 300px;
+	color: #FFF200;
+	font-size: 50px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	z-index: 97;
+	cursor: pointer;
+}
+.open-tilmeld:hover {
+	text-decoration: underline;
+}
+
+.mail-box {
+	font-family: 'Helvetica',Arial;
+	position: absolute;
+	background: #FFF200;
+	width: 590px;
+	height: 260px;
+	margin-top: 20px;
+	padding: 40px;
+	text-align: center;
+	z-index: 100;
+	display: none;
+}
+form input {
+	display: block;
+	text-align: center;
+	margin: auto;
+}
+input[type="email"]{
+	width: 320px;
+	font-size: 16px;
+	padding: 7px 10px;
+	margin-top: 15px;
+	background: none;
+	border: none;
+	border-bottom: 1px solid black;
+	outline: none !important;
+}
+input[type="submit"], button{
+	margin-top: 20px;
+	font-size: 13px;
+	border: 1px solid black;
+	background: none;
+	padding: 10px 20px;
+}
+input[type="submit"]:hover, button:hover{
+	background: black;
+	color: #FFF200;
+	cursor: pointer;
+}
+p {
+	margin-top: 30px;
+	font-size: 11px;
+	line-height: 150%;
+}
+
+.done {
+	display: none;
+	margin-top: 50px;
 }
